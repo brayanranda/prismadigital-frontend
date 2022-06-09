@@ -1,4 +1,8 @@
+import { useState } from "react";
+
 export default function Login() {
+  const [user, setUser] = useState("");
+  const [password, setPassword] = useState("");
   return (
     <main className="relative">
       <section className="w-full md:flex items-center bg-gray-200">
@@ -24,17 +28,21 @@ export default function Login() {
         <article className="w-full md:w-1/2 flex items-center justify-center min-h-screen">
           <form className="bg-white rounded-sm p-7 w-4/5 lg:w-3/5 text-left">
             <h1 className="text-2xl mb-5">Iniciar sesión</h1>
-            <label className="w-full" for="user">
+            <label className="w-full" htmlFor="user">
               <p className="">User</p>
               <input
                 className="rounded-sm placeholder-blue-400 p-3 bg-gray-100 appearance-none border border-transparent  w-full text-blue-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-600 mb-6"
+                value={user}
+                onChange={(e) => setUser(e.target.value)}
                 type="text"
               />
             </label>
-            <label className="w-full" for="password">
+            <label className="w-full" htmlFor="password">
               <p className="">Password</p>
               <input
                 className="rounded-sm placeholder-blue-400 p-3 bg-gray-100 appearance-none border border-transparent  w-full text-blue-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-600 mb-6"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 type="password"
               />
             </label>
