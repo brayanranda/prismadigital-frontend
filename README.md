@@ -7,6 +7,25 @@ Se inicio el proyecto diseñando los mockups de la aplicación
 
 [prismadigital-s3](http://prismadigital-app.s3-website.us-east-2.amazonaws.com/)
 
+# Se utilizo React
+
+### `Para la ejecución del proyecto se utiliza el siguiente comando:`
+
+### npm start
+
+Ejecuta la aplicación en el modo de desarrollo.\
+Abra [http://localhost:3000](http://localhost:3000) para verlo en el navegador.
+
+# Se utilizo TailwindCSS
+
+`Tailwind CSS` es un framework de CSS de código abierto​ para el diseño de páginas web. La principal característica de esta biblioteca es que, a diferencia de otras como Bootstrap, no genera una serie de clases predefinidas para elementos como botones o tablas
+
+## Adicionalmente se uso:
+
+`FontAwesome`: Font Awesome es un conjunto de herramientas de fuentes e íconos basado en CSS y Less
+
+`Toaster`: React-Toastify le permite agregar notificaciones a su aplicación con facilidad.
+
 # Cronograma
 
 | Tiempo  | Actividad                                        |
