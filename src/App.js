@@ -1,16 +1,42 @@
 import * as React from "react";
-import "./App.css";
-import { Route } from "wouter";
-import Home from "./components/Home/Home";
-import Login from "./components/Login/Login";
 import List from "./components/List/List";
+import { AuthContext } from "./utils/contexts";
+import { isUserLogedApi } from "./api/auth";
+import { useState, useEffect } from "react";
+import Home from "./page/Home/index";
+// import { ToastContainer } from "react-toastify";
 
 export default function App() {
+  const [user, setUser] = useState(null);
+  const [loadUser, setLoadUser] = useState(false);
+  const [refreshCheckLogin, setRefreshCheckLogin] = useState(false);
+
+  useEffect(() => {
+    setUser(isUserLogedApi());
+    setRefreshCheckLogin(false);
+    setLoadUser(true);
+  }, [refreshCheckLogin]);
+
+  if (!loadUser) return null;
+
   return (
-    <div className="App">
-      <Route path="/" component={Home} />
-      <Route path="/list" component={List} />
-      <Route path="/login" component={Login} />
-    </div>
+    <AuthContext.Provider value={user}>
+      {user ? (
+        <List setRefreshCheckLogin={setRefreshCheckLogin} />
+      ) : (
+        <Home setRefreshCheckLogin={setRefreshCheckLogin} />
+      )}
+      {/* <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnVisibilityChange
+        draggable
+        pauseOnHover
+      /> */}
+    </AuthContext.Provider>
   );
 }
