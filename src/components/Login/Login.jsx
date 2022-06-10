@@ -15,7 +15,6 @@ export default function Login({ setRefreshCheckLogin }) {
     if (user.username !== "" && user.clave !== "") {
       if (res.login) {
         setTokenApi(res);
-        console.log(setRefreshCheckLogin);
         setRefreshCheckLogin(true);
       } else {
         toast.error("Usuario o contraseña incorrectos.");
